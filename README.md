@@ -1,150 +1,53 @@
+# Even or Odd Number Checker
 
-# TASK 1
+# Description
+This Python script checks whether a given number is even or odd.
+It prompts the user to enter a number and then determines if the number is divisible by 2.
 
-🔹 Step 1: Taking Input
-first_number = input("Enter the first number: ")
+# How It Works
+The user inputs a number.
+The program uses the modulus operator %.
+If number % 2 == 0, the number is even.
+Otherwise, it is odd.
 
+# code
+number = int(input("Enter a number: "))
+if number % 2 == 0:
+print(f"{number} is an even number")
+else:
+print(f"{number} is an odd number")
 
-input() shows the message:
-Enter the first number:
+# output
 
-The user types something.
+Enter a number: 10
+10 is an even number
+Enter a number: 7
+7 is an odd number
 
-⚠️ Important: input() always returns a string, not a number.
 
-That string is stored in first_number.
+# Sum of Numbers from 1 to 50
+# Description
 
-Example:
-If user types 10
-Then:
+This Python script calculates the sum of numbers from 1 to 50 using a for loop.
 
-first_number = "10"   # string
+It iterates through numbers 1 to 50 (inclusive), adds them together, and prints the final result.
 
-second_number = input("Enter the second number: ")
+# How It Works
 
+Initialize a variable sum1 to 0
 
-Same process:
-If user types 5
+Use range(1, 51) to generate numbers from 1 to 50
 
-second_number = "5"   # string
+Add each number to sum1
 
-🔹 Step 2: Why We Use int()
+Print the final sum after the loop ends
 
-Because input values are strings:
+# Code
+sum1 = 0
 
-"10" + "5"  # gives "105"
+for i in range(1, 51):
+sum1 += i
 
-
-That would concatenate, not add.
-
-So we convert them to integers:
-
-int(first_number)
-int(second_number)
-
-
-Now they become real numbers:
-
-10
-5
-
-🔹 Step 3: Addition
-print("Addition:" , int(first_number) + int(second_number))
-
-
-What happens:
-
-Convert both strings to integers.
-
-Add them.
-
-Print result.
-
-Example output:
-
-Addition: 15
-
-🔹 Step 4: Subtraction
-print("Substraction:" , int(first_number) - int(second_number))
-
-
-10 - 5 = 5
-
-Output:
-
-Substraction: 5
-
-🔹 Step 5: Multiplication
-print("Multiplication:" , int(first_number) * int(second_number))
-
-
-10 × 5 = 50
-
-Output:
-
-Multiplication: 50
-
-🔹 Step 6: Division
-print("Division:" , int(first_number) / int(second_number))
-
-
-10 ÷ 5 = 2.0
-
-⚠️ Notice:
-Division / always returns a float in Python.
-
-Even:
-
-10 / 5  # 2.0
-
-# ============
-
-# Task 2
-
-Ask for the first name
-
-first_name = input("Enter your first name: ")
-
-
-The input() function displays the message "Enter your first name: ".
-
-The user types their first name.
-
-The entered value is stored in the variable first_name.
-
-Ask for the second name
-
-second_name = input("Enter your second name: ")
-
-
-The program displays "Enter your second name: ".
-
-The user types their second name.
-
-The entered value is stored in the variable second_name.
-
-Combine the names
-
-full_name = first_name + " " + second_name
-
-
-The program joins first_name and second_name.
-
-" " adds a space between them.
-
-The combined result is stored in the variable full_name.
-
-Display the greeting message
-
-print(f"Hello, {full_name}! Welcome to the python program.")
-
-
-The print() function displays output on the screen.
-
-The f before the string makes it an f-string, allowing variable values inside {}.
-
-{full_name} is replaced with the user's full name.
-
-The final message appears, for example:
-
-Hello, John Smith! Welcome to the python program.
+print(f"The sum of numbers from 1 to 50 is {sum1}")
+# Output
+The sum of numbers from 1 to 50 is 1275
