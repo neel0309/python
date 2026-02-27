@@ -1,53 +1,105 @@
-# Even or Odd Number Checker
+# Factorial
 
-# Description
-This Python script checks whether a given number is even or odd.
-It prompts the user to enter a number and then determines if the number is divisible by 2.
+This Python script calculates the factorial of a number entered by the user using a recursive function.
 
-# How It Works
-The user inputs a number.
-The program uses the modulus operator %.
-If number % 2 == 0, the number is even.
-Otherwise, it is odd.
+A factorial of a number n (written as n!) means:
 
-# code
-number = int(input("Enter a number: "))
-if number % 2 == 0:
-print(f"{number} is an even number")
-else:
-print(f"{number} is an odd number")
+n! = n × (n-1) × (n-2) × ... × 1
 
-# output
+Example:
 
-Enter a number: 10
-10 is an even number
-Enter a number: 7
-7 is an odd number
+5! = 5 × 4 × 3 × 2 × 1 = 120
 
+By definition:
 
-# Sum of Numbers from 1 to 50
-# Description
+0! = 1
 
-This Python script calculates the sum of numbers from 1 to 50 using a for loop.
+# How the code works ?
 
-It iterates through numbers 1 to 50 (inclusive), adds them together, and prints the final result.
+The function factorial(n) calculates the factorial of n.
 
-# How It Works
+It uses recursion, meaning the function calls itself.
 
-Initialize a variable sum1 to 0
+Base case:
+When n == 0, the function returns 1.
+This stops the recursion.
 
-Use range(1, 51) to generate numbers from 1 to 50
+Recursive case:
+The function returns n * factorial(n-1)
+This continues reducing the number until it reaches 0.
 
-Add each number to sum1
+# Math Operations Program
 
-Print the final sum after the loop ends
+This Python script:
 
-# Code
-sum1 = 0
+Takes a number as input from the user
 
-for i in range(1, 51):
-sum1 += i
+Calculates:
 
-print(f"The sum of numbers from 1 to 50 is {sum1}")
-# Output
-The sum of numbers from 1 to 50 is 1275
+        Square root
+
+        Natural logarithm
+
+        Radians conversion
+
+Prints the results
+
+It uses Python’s built-in math module.
+
+# Import the Math Module
+    import math
+
+Imports Python’s built-in math library.
+
+Gives access to mathematical functions like:
+
+    sqrt()
+    
+    log()
+    
+    radians()
+
+# Take User Input
+    answer = int(input("Enter a number: "))
+
+Prompts the user to enter a number.
+
+input() returns a string.
+
+int() converts it into an integer.
+
+The value is stored in the variable answer.
+
+Example:
+
+Enter a number: 25
+
+# Calculate and Print Results
+    Square Root
+    print(f'Square root {math.sqrt(answer)}')
+
+    math.sqrt(answer) returns the square root.
+
+Example:
+
+Square root 5.0
+
+(since √25 = 5)
+
+# Logarithm
+    print(f'Logarithm {math.log(answer)}')
+
+    math.log(answer) returns the natural logarithm (base e).
+
+Example:
+
+Logarithm 3.2188758248682006
+
+(ln(25))
+
+If you wanted base 10 instead, you would use:
+
+math.log10(answer)
+# Radians Conversion
+    print(f'Sine {math.sin(answer)}')
+    math.sin(math.radians(answer))
