@@ -1,11 +1,11 @@
 import pathlib
 
-file = pathlib.Path("/Users/neil/PyCharmMiscProject/python/output.txt")
-
+file = pathlib.Path("output.txt")
 
 try:
-    with open(file, "at") as f:
+    with open(file, "w") as f:
         f.write(input("Enter text to write to the file:") + "\n")
+    with open(file, "a") as f:
         print(f"Data successfully written to {file}")
         f.write(input("Enter additional text to append:")+ "\n")
         print(f"Data successfully appended")

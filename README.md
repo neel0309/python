@@ -1,105 +1,58 @@
-# Factorial
+# READ
 
-This Python script calculates the factorial of a number entered by the user using a recursive function.
+1️⃣ Define the file path
+file = pathlib.Path("sample.txt")
 
-A factorial of a number n (written as n!) means:
+This creates a relative path pointing to sample.txt in the current directory.
 
-n! = n × (n-1) × (n-2) × ... × 1
+2️⃣ Open and read the file
+with file.open("rt") as fh:
 
-Example:
+"r" = read mode
 
-5! = 5 × 4 × 3 × 2 × 1 = 120
+"t" = text mode
 
-By definition:
+The with statement ensures the file is properly closed after reading.
 
-0! = 1
+3️⃣ Iterate through lines
+for line in fh:
+    print(line.strip())
 
-# How the code works ?
+Reads the file line by line
 
-The function factorial(n) calculates the factorial of n.
+.strip() removes newline characters (\n)
 
-It uses recursion, meaning the function calls itself.
+4️⃣ Error Handling
+except FileNotFoundError:
 
-Base case:
-When n == 0, the function returns 1.
-This stops the recursion.
+If sample.txt does not exist, the script prints:
 
-Recursive case:
-The function returns n * factorial(n-1)
-This continues reducing the number until it reaches 0.
+Error: The file sample.txt was not found
 
-# Math Operations Program
 
-This Python script:
+# Append
 
-Takes a number as input from the user
+1️⃣ Write to File (Overwrite Mode)
+with open(file, "w") as f:
 
-Calculates:
+"w" mode creates the file if it doesn't exist.
 
-        Square root
+If the file already exists, it overwrites its contents.
 
-        Natural logarithm
+The user is prompted to enter text, which is written to the file.
 
-        Radians conversion
+2️⃣ Append to File
+with open(file, "a") as f:
 
-Prints the results
+"a" mode adds new content to the end of the file.
 
-It uses Python’s built-in math module.
+Existing content remains unchanged.
 
-# Import the Math Module
-    import math
+The user enters additional text, which is appended.
 
-Imports Python’s built-in math library.
+3️⃣ Read Final Content
+with open(file, "r") as f:
 
-Gives access to mathematical functions like:
+"r" mode reads the file.
 
-    sqrt()
-    
-    log()
-    
-    radians()
-
-# Take User Input
-    answer = int(input("Enter a number: "))
-
-Prompts the user to enter a number.
-
-input() returns a string.
-
-int() converts it into an integer.
-
-The value is stored in the variable answer.
-
-Example:
-
-Enter a number: 25
-
-# Calculate and Print Results
-    Square Root
-    print(f'Square root {math.sqrt(answer)}')
-
-    math.sqrt(answer) returns the square root.
-
-Example:
-
-Square root 5.0
-
-(since √25 = 5)
-
-# Logarithm
-    print(f'Logarithm {math.log(answer)}')
-
-    math.log(answer) returns the natural logarithm (base e).
-
-Example:
-
-Logarithm 3.2188758248682006
-
-(ln(25))
-
-If you wanted base 10 instead, you would use:
-
-math.log10(answer)
-# Radians Conversion
-    print(f'Sine {math.sin(answer)}')
-    math.sin(math.radians(answer))
+Each line is printed using .strip() to remove newline characters.
