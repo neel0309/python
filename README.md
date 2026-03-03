@@ -1,58 +1,88 @@
-# READ
+# Dictionary
 
-1️⃣ Define the file path
-file = pathlib.Path("sample.txt")
+1️⃣ Dictionary Creation
+dict = {"Alice": 1, "Bob": 2, "Charlie": 3, "Neil": 3}
 
-This creates a relative path pointing to sample.txt in the current directory.
+A dictionary is created where:
 
-2️⃣ Open and read the file
-with file.open("rt") as fh:
+Key → Student name
 
-"r" = read mode
+Value → Marks
 
-"t" = text mode
+Example:
 
-The with statement ensures the file is properly closed after reading.
+"Alice" → 1
 
-3️⃣ Iterate through lines
-for line in fh:
-    print(line.strip())
+"Bob" → 2
 
-Reads the file line by line
+2️⃣ User Input
+take = input("Enter the student's name:")
 
-.strip() removes newline characters (\n)
+The program asks the user to enter a student's name.
 
-4️⃣ Error Handling
-except FileNotFoundError:
+The input is stored in the variable take.
 
-If sample.txt does not exist, the script prints:
+3️⃣ Searching the Dictionary
+for name in dict:
+    if name == take:
+        print(f"{name} marks: {dict[name]}")
 
-Error: The file sample.txt was not found
+The program loops through each name in the dictionary.
 
+If the entered name matches a key:
 
-# Append
+It prints the student's marks.
 
-1️⃣ Write to File (Overwrite Mode)
-with open(file, "w") as f:
+▶️ Example Run
+Enter the student's name: Alice
+Alice marks: 1
 
-"w" mode creates the file if it doesn't exist.
+# Slice
 
-If the file already exists, it overwrites its contents.
+1️⃣ Create the Original List
+original_list = [1,2,3,4,5,6,7,8,9,10]
 
-The user is prompted to enter text, which is written to the file.
+A list of numbers from 1 to 10 is created.
 
-2️⃣ Append to File
-with open(file, "a") as f:
+This list remains unchanged throughout the program.
 
-"a" mode adds new content to the end of the file.
+2️⃣ Extract First Five Elements
+extract = original_list[:5]
 
-Existing content remains unchanged.
+[:5] is list slicing.
 
-The user enters additional text, which is appended.
+It creates a new list containing the first five elements.
 
-3️⃣ Read Final Content
-with open(file, "r") as f:
+The original list is not modified.
 
-"r" mode reads the file.
+After slicing:
 
-Each line is printed using .strip() to remove newline characters.
+extract = [1, 2, 3, 4, 5]
+3️⃣ Print the Lists
+print(f"original list: {original_list}")
+print(f"Extracted first five elements:{extract}")
+
+Displays:
+
+The original full list
+
+The sliced list
+
+4️⃣ Reverse the Extracted List
+extract.reverse()
+
+reverse() modifies the list in place
+
+It does not create a new list
+
+It does not return anything (None)
+
+After reversing:
+
+extract = [5, 4, 3, 2, 1]
+5️⃣ Print the Reversed List
+print(f"Reversed extracted elements: {extract}")
+▶️ Example Output
+original list: [1,2,3,4,5,6,7,8,9,10]
+Extracted first five elements: [1,2,3,4,5]
+Reversed extracted elements: [5,4,3,2,1]
