@@ -1,10 +1,10 @@
-student_marks = {"Alice": 1, "Bob": 2, "Charlie": 3,"Neil": 3}
+student_marks = {"Alice": 1, "Bob": 2, "Charlie": 3, "Neil": 3}
 
+student_name = input("Enter the student's name: ")
 
-student_name = input(f"Enter the student's name:")
+marks = student_marks.get(student_name)
 
-if student_name in student_marks:
-    print(f"{student_name} marks: {student_marks[student_name]}")
+if marks is not None:
+    print(f"{student_name}'s marks: {marks}")
 else:
-    print(f"{student_name} student not found")
-
+    print("Student not found")
