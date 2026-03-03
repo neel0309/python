@@ -1,9 +1,10 @@
 # Dictionary
 
-1️⃣ Dictionary Creation
-dict = {"Alice": 1, "Bob": 2, "Charlie": 3, "Neil": 3}
+🧠 How the Program Works
+1️⃣ Create a Dictionary
+student_marks = {"Alice": 1, "Bob": 2, "Charlie": 3, "Neil": 3}
 
-A dictionary is created where:
+A dictionary stores key-value pairs
 
 Key → Student name
 
@@ -15,74 +16,109 @@ Example:
 
 "Bob" → 2
 
-2️⃣ User Input
-take = input("Enter the student's name:")
+2️⃣ Take User Input
+student_name = input("Enter the student's name:")
 
-The program asks the user to enter a student's name.
+The user enters a student's name.
 
-The input is stored in the variable take.
+The input is stored in the variable student_name.
 
-3️⃣ Searching the Dictionary
-for name in dict:
-    if name == take:
-        print(f"{name} marks: {dict[name]}")
+3️⃣ Check If Student Exists
+if student_name in student_marks:
 
-The program loops through each name in the dictionary.
+The in operator checks whether the name exists as a key in the dictionary.
 
-If the entered name matches a key:
+If found → display marks.
 
-It prints the student's marks.
+If not found → display "student not found".
 
-▶️ Example Run
+4️⃣ Display Result
+print(f"{student_name} marks: {student_marks[student_name]}")
+
+Uses f-strings for formatted output.
+
+Accesses marks using dictionary key lookup.
+
+If not found:
+
+print(f"{student_name} student not found")
+▶️ Example Runs
+✅ When Student Exists
 Enter the student's name: Alice
 Alice marks: 1
+❌ When Student Does Not Exist
+Enter the student's name: David
+David student not found
+🔑 Concepts Used
+
+Dictionary (key-value pairs)
+
+User input
+
+Conditional statements (if-else)
+
+Membership operator (in)
+
+f-strings
 
 # Slice
 
-1️⃣ Create the Original List
-original_list = [1,2,3,4,5,6,7,8,9,10]
+🧠 How the Program Works
+1️⃣ Create a List Using range()
+original_list = list(range(1, 11))
 
-A list of numbers from 1 to 10 is created.
+range(1, 11) generates numbers from 1 to 10
 
-This list remains unchanged throughout the program.
+list() converts the range into a list
 
-2️⃣ Extract First Five Elements
+Result:
+
+[1,2,3,4,5,6,7,8,9,10]
+2️⃣ Extract the First Five Elements
 extract = original_list[:5]
 
-[:5] is list slicing.
+[:5] is list slicing
 
-It creates a new list containing the first five elements.
+It selects elements from index 0 to 4
 
-The original list is not modified.
+Result:
 
-After slicing:
+[1,2,3,4,5]
 
-extract = [1, 2, 3, 4, 5]
-3️⃣ Print the Lists
-print(f"original list: {original_list}")
-print(f"Extracted first five elements:{extract}")
+The original list remains unchanged.
 
-Displays:
+3️⃣ Reverse Using Slicing [::-1]
+reversed_list = extract[::-1]
 
-The original full list
+:: → slicing operator
 
-The sliced list
+-1 → step backwards
 
-4️⃣ Reverse the Extracted List
-extract.reverse()
+Creates a new reversed list
 
-reverse() modifies the list in place
+Does NOT modify extract
 
-It does not create a new list
+Result:
 
-It does not return anything (None)
-
-After reversing:
-
-extract = [5, 4, 3, 2, 1]
-5️⃣ Print the Reversed List
-print(f"Reversed extracted elements: {extract}")
+[5,4,3,2,1]
+4️⃣ Print the Results
+print(f"Original list: {original_list}")
+print(f"Extracted first five elements: {extract}")
+print(f"Reversed extracted elements: {reversed_list}")
 ▶️ Example Output
-original list: [1,2,3,4,5,6,7,8,9,10]
+Original list: [1,2,3,4,5,6,7,8,9,10]
 Extracted first five elements: [1,2,3,4,5]
 Reversed extracted elements: [5,4,3,2,1]
+🔑 Concepts Demonstrated
+
+range() function
+
+List conversion using list()
+
+List slicing
+
+Step parameter in slicing
+
+Creating new lists
+
+f-strings
