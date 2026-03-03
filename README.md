@@ -54,6 +54,18 @@ When Student Does Not Exist
 Enter the student's name: David
 David student not found
 
+Test Case 1 (Valid Name)
+Enter the student's name: Alice
+Alice marks: 1
+
+Test Case 2 (Invalid Name)
+Enter the student's name: David
+David student not found
+
+Test Case 3 (Another Valid Name)
+Enter the student's name: Neil
+Neil marks: 3
+
 
 # Slice
 
