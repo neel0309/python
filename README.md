@@ -1,117 +1,83 @@
-# Dictionary
+# SQLite Example in Python
 
-# Create a Dictionary
-student_marks = {"Alice": 1, "Bob": 2, "Charlie": 3, "Neil": 3}
+This script demonstrates how to create a database, create a table, insert data, and retrieve records using Python and SQLite.
 
-A dictionary stores key-value pairs
+It uses Python’s built-in sqlite3 module to interact with a local database file.
 
-Key → Student name
+# Step 1 — Import SQLite Library
+import sqlite3
 
-Value → Marks
+The sqlite3 module allows Python programs to interact with SQLite databases.
 
-Example:
+SQLite is a lightweight file-based database, meaning it does not require a separate server.
 
-"Alice" → 1
+# Step 2 — Create or Connect to a Database
+conn = sqlite3.connect('test.db')
 
-"Bob" → 2
+This line:
 
-# Take User Input
-student_name = input("Enter the student's name:")
+Connects to a database file called test.db
 
-The user enters a student's name.
+If the file does not exist, SQLite automatically creates a new database
 
-The input is stored in the variable student_name.
+# Step 3 — Create a Cursor
+cursor = conn.cursor()
 
-# Check If Student Exists
+A cursor is used to execute SQL commands on the database.
 
-if student_name in student_marks:
+It acts as a control interface between Python and the database.
 
-The in operator checks whether the name exists as a key in the dictionary.
+# Step 4 — Create a Table
+cursor.execute('''CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY,
+    name TEXT)''')
 
-If found → display marks.
-
-If not found → display "student not found".
-
-# Display Result
-
-print(f"{student_name} marks: {student_marks[student_name]}")
-
-Uses f-strings for formatted output.
-
-Accesses marks using dictionary key lookup.
-
-If not found:
-
-print(f"{student_name} student not found")
-
-# Example Runs
-
-When Student Exists
-Enter the student's name: Alice
-Alice marks: 1
-
-When Student Does Not Exist
-Enter the student's name: David
-David student not found
-
-Test Case 1 (Valid Name)
-Enter the student's name: Alice
-Alice marks: 1
-
-Test Case 2 (Invalid Name)
-Enter the student's name: David
-David student not found
-
-Test Case 3 (Another Valid Name)
-Enter the student's name: Neil
-Neil marks: 3
+This SQL command creates a table named test.
 
 
-# Slice
+The clause IF NOT EXISTS ensures the table is only created if it does not already exist.
 
-# Create a List Using range()
-original_list = list(range(1, 11))
+This prevents errors if the script runs multiple times.
 
-range(1, 11) generates numbers from 1 to 10
+# Step 5 — Confirmation Message
+print("Successfully created table")
 
-list() converts the range into a list
+This simply prints a message indicating that the table creation step completed.
 
-Result:
+# Step 6 — Insert Data into the Table
+cursor.execute('''INSERT INTO test (id,name) VALUES (21,'das')''')
 
-[1,2,3,4,5,6,7,8,9,10]
+This SQL statement inserts a new record into the table.
 
-# Extract the First Five Elements
-extract = original_list[:5]
+Values inserted:
 
-[:5] is list slicing
+id	name
+21	das
+Step 7 — Confirmation Message
+print("Successfully inserted table")
 
-It selects elements from index 0 to 4
+This prints a message confirming that the record was inserted successfully.
 
-Result:
+# Step 8 — Retrieve Data
+cursor.execute('''SELECT name FROM test ORDER BY id''')
 
-[1,2,3,4,5]
+This query retrieves the name column from the table.
 
+The results are sorted by the id column in ascending order.
 
-# Reverse Using Slicing [::-1]
+# Step 9 — Display Results
+print(cursor.fetchall())
 
-reversed_list = extract[::-1]
+fetchall() retrieves all rows returned by the query.
 
-:: → slicing operator
+Example output:
 
--1 → step backwards
+[('das',)]
 
-Creates a new reversed list
+This output means that the table contains one record with the name "das".
 
-Result:
+Example Table Content
 
-[5,4,3,2,1]
+After running the script, the table will look like this:
 
-# Print the Results
-print(f"Original list: {original_list}")
-print(f"Extracted first five elements: {extract}")
-print(f"Reversed extracted elements: {reversed_list}")
-
-# Example RUN
-Original list: [1,2,3,4,5,6,7,8,9,10]
-Extracted first five elements: [1,2,3,4,5]
-Reversed extracted elements: [5,4,3,2,1]
+id	name
+21	das
