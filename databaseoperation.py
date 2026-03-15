@@ -1,18 +1,41 @@
-import sqlite3
+import psycopg2
 
 
-conn = sqlite3.connect('test.db')
+def getConnection():
+    conn = psycopg2.connect(
+        host="localhost",
+        database="testdb",
+        user="postgres",
+        password="yourpassword"
+    )
+    return conn
 
-cursor = conn.cursor()
 
-cursor.execute('''CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY,
-    name TEXT)''')
+def table():
+    conn = getConnection()
+    cursor = conn.cursor()
 
-print("Successfully created table")
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS test (
+            id SERIAL PRIMARY KEY,
+            name TEXT
+        )
+    """)
 
-cursor.execute('''INSERT INTO test (id,name) VALUES (21,'das')''')
+    cursor.execute("""
+        INSERT INTO test (name) VALUES (%s)
+    """, ("das",))
 
-print("Successfully inserted table")
+    cursor.execute("SELECT name FROM test ORDER BY id")
 
-cursor.execute('''SELECT name FROM test ORDER BY id''')
-print(cursor.fetchall())
+    rows = cursor.fetchall()
+
+    for row in rows:
+        print(row)
+
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+
+table()
